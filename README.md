@@ -1,5 +1,7 @@
-# usage
-```js
+# About
+A javascript ABTest lib running in browser
+# Usage
+```javascript
 var abtest = new ABTest('abtestAppSymbol',[{
     layer_id:'layerSymbol',
     ref_exp_id:0,

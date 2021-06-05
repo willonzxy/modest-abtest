@@ -1,19 +1,26 @@
 {
   "name": "modest-abtest",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A javascript ABTest lib running in browser",
+  "main": "dist/abtest.min.js",
   "scripts": {
     "test": "npm run build && mocha",
     "build": "rollup -c"
   },
-  "keywords": [],
-  "author": "willon",
+  "keywords":[
+    "murmurhash3",
+    "abtest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:willonzxy/modest-abtest.git"
+  },
+  "author": "Willon",
   "license": "MIT",
+  "homepage": "https://github.com/willonzxy/modest-abtest/tree/master#readme",
   "dependencies": {
     "cookie": "^0.4.1",
-    "murmurhash3js": "^3.0.1",
-    "uuid": "^8.3.2"
+    "murmurhash3js": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

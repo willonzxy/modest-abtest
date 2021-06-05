@@ -691,22 +691,6 @@
       }
 
       var layer_shunt_model = layers[layer_id];
-
-      if (shunt_model.launch_layer[layer_id]) {
-        var _shunt_model$launch_l = shunt_model.launch_layer[layer_id],
-            data = _shunt_model$launch_l.data,
-            id = _shunt_model$launch_l.id,
-            version = _shunt_model$launch_l.version;
-        hit_info.layer[layer_id] = {
-          hit_exp_data: data,
-          hit_exp_id: id,
-          version: version
-        }; // console.log('命中launch layer层',layer_id)
-
-        hit_info.trace_id.push("".concat(app_id, "~").concat(layer_id, "~").concat(id, "~").concat(version));
-        continue;
-      }
-
       var hash = murmurhash3js.x86.hash32(hash_id);
       var mod = hash % BUCKET_NUM;
 
@@ -717,7 +701,22 @@
           version: layer_shunt_model.ref_exp.version
         };
       } else {
-        // 进入实验的流量重新hash打散
+        // launch layer
+        if (shunt_model.launch_layer[layer_id]) {
+          var _shunt_model$launch_l = shunt_model.launch_layer[layer_id],
+              data = _shunt_model$launch_l.data,
+              id = _shunt_model$launch_l.id,
+              version = _shunt_model$launch_l.version;
+          hit_info.layer[layer_id] = {
+            hit_exp_data: data,
+            hit_exp_id: id,
+            version: version
+          };
+          hit_info.trace_id.push("".concat(app_id, "_").concat(layer_id, "_").concat(id, "_").concat(version));
+          continue;
+        } // 进入实验的流量重新hash打散
+
+
         var _hash = murmurhash3js.x86.hash32(hash_id + layer_id);
 
         var _mod = _hash % BUCKET_NUM;
@@ -734,9 +733,7 @@
               hit_exp_data: _data,
               hit_exp_id: _id,
               version: _version
-            }; // count[id] ? count[id]++ : (count[id] = 1);
-            // console.table(count)
-
+            };
             hit_info.trace_id.push("".concat(app_id, "_").concat(layer_id, "_").concat(_id, "_").concat(_version));
             break;
           }

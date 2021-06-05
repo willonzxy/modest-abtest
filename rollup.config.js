@@ -7,13 +7,13 @@ export default {
     legacy: true,
     output: [
         {
-            file: './dist/abtest.min.js',
+            file: './dist/modest-abtest.min.js',
             format: 'umd',
             name: 'ABTest',
             plugins: [terser()]
         },
         {
-            file: './example/abtest.js',
+            file: './example/modest-abtest.js',
             format: 'umd',
             name: 'ABTest'
         }

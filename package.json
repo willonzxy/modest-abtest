@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git@github.com:willonzxy/modest-abtest.git"
   },
-  "author": "Willon",
+  "author": "willonzxy",
   "license": "MIT",
   "homepage": "https://github.com/willonzxy/modest-abtest/tree/master#readme",
   "dependencies": {

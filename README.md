@@ -1,6 +1,6 @@
-# About
+## About
 A javascript ABTest lib running in browser
-# Usage
+## Usage
 ```javascript
 var abtest = new ABTest('abtestAppSymbol',[{
     layer_id:'layerSymbol',
@@ -27,4 +27,16 @@ console.log(abtest_result);
 	"uid": "7f65cb09-51ba-48b1-9622-fc698141b1dd"
 }
 ```
+## Attributes
+| Attribute | Description | Type | Verbose
+| -:| :- | :-: | :-:|
+| layer_id | the scene id in this ABTest experiment | Number\|String | - |
+| ref_exp_id | the reference experiment id  | Number\|String | -|
+| ref_exp_data | the reference experiment data  | Any | -|
+| hit | the percentage of users participating in the experiment | Number | range [0,1]  precision 0.01 |
+| version | experiment version,will record to the trace_id | Number | - |
+| exp_set | experiment group | Array | - |
+| exp_set.weight | the percentage of experiment | Number | range [0,1]  precision 0.01 |
 
+## Verbose
+trace_id = `${app_id}_${layer_id}_${exp_id}_${version}`

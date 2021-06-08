@@ -1,6 +1,6 @@
 {
   "name": "modest-abtest",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A javascript ABTest lib running in browser",
   "main": "dist/modest-abtest.min.js",
   "scripts": {

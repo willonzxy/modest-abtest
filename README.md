@@ -39,4 +39,5 @@ console.log(abtest_result);
 | exp_set.weight | the percentage of experiment | Number | range [0,1]  precision 0.01 |
 
 ## Verbose
-trace_id = `${app_id}_${layer_id}_${exp_id}_${version}`
+1. trace_id = `${app_id}_${layer_id}_${exp_id}_${version}`
+2. You can find trace_id and uid in Cookies as well

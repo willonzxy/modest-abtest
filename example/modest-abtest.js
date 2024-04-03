@@ -161,14 +161,14 @@
             var id = exp_item.id,
                 data = exp_item.data,
                 weight = exp_item.weight;
-            var len = weight * BUCKET_NUM;
+            var len = Math.round(weight * BUCKET_NUM);
             var bucket = getBucket(index, len);
             shunt_model[app_id].layer[layer_id].exp_set[id] = {
               data: data,
               bucket: bucket,
               version: version
             };
-            index = len; // 100% exp upgrade to launch layer
+            index += len; // 100% exp upgrade to launch layer
 
             if (weight === 1) {
               shunt_model[app_id].launch_layer[layer_id] = {

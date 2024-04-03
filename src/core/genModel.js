@@ -38,14 +38,14 @@ function createAppShuntModel(app_id, config) {
                 data,
                 weight
             } = exp_item;
-            let len = weight * BUCKET_NUM;
+            let len = Math.round(weight * BUCKET_NUM);
             let bucket = getBucket(index, len);
             shunt_model[app_id].layer[layer_id].exp_set[id] = {
                 data,
                 bucket,
                 version
             }
-            index = len;
+            index += len;
             // 100% exp upgrade to launch layer
             if(weight === 1){
                 shunt_model[app_id].launch_layer[layer_id] = {

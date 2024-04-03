@@ -1,12 +1,16 @@
 {
   "name": "modest-abtest",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A javascript ABTest lib running in browser",
   "main": "dist/modest-abtest.min.js",
   "scripts": {
     "test": "npm run build && mocha",
     "build": "rollup -c"
   },
+  "files": [
+    "dist",
+    "example"
+  ],
   "keywords": [
     "murmurhash3",
     "abtest"

@@ -7,14 +7,20 @@ export default {
     legacy: true,
     output: [
         {
-            file: './dist/modest-abtest.min.js',
-            format: 'umd',
+            file: './dist/modest-abtest.cjs.min.js',
+            format: 'cjs',
             name: 'ABTest',
             plugins: [terser()]
         },
         {
-            file: './example/modest-abtest.js',
-            format: 'umd',
+            file: './dist/modest-abtest.esm.min.js',
+            format: 'es',
+            name: 'ABTest',
+            plugins: [terser()]
+        },
+        {
+            file: './example/modest-abtest.iife.js',
+            format: 'iife',
             name: 'ABTest'
         }
     ],

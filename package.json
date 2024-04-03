@@ -1,8 +1,9 @@
 {
   "name": "modest-abtest",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A javascript ABTest lib running in browser",
-  "main": "dist/modest-abtest.min.js",
+  "main": "dist/modest-abtest.cjs.min.js",
+  "module": "dist/modest-abtest.esm.min.js",
   "scripts": {
     "test": "npm run build && mocha",
     "build": "rollup -c"

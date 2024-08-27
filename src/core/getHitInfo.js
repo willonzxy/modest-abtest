@@ -17,11 +17,13 @@ export default function getHitInfo(app_id,qs_layer_id,shunt_model,hash_id,uid){
         let hash = murmurHash3.x86.hash32(hash_id);
         let mod = hash % BUCKET_NUM;
         if( layer_shunt_model.ref_exp.bucket.includes(mod) ){
+            const {data,id,version} = layer_shunt_model.ref_exp;
             hit_info.layer[layer_id] = {
-                hit_exp_data:layer_shunt_model.ref_exp.data,
-                hit_exp_id:'',
-                version:layer_shunt_model.ref_exp.version
+                hit_exp_data:data,
+                hit_exp_id:id,
+                version:version
             }
+            hit_info.trace_id.push(`${app_id}_${layer_id}_${id}_${version}`)
         }else{
             // launch layer
             if(shunt_model.launch_layer[layer_id]){
@@ -29,7 +31,7 @@ export default function getHitInfo(app_id,qs_layer_id,shunt_model,hash_id,uid){
                 hit_info.layer[layer_id] = {
                     hit_exp_data:data,
                     hit_exp_id:id,
-                    version
+                    version:version
                 }
                 hit_info.trace_id.push(`${app_id}_${layer_id}_${id}_${version}`)
                 continue

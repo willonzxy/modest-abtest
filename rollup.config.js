@@ -19,6 +19,12 @@ export default {
             plugins: [terser()]
         },
         {
+            file: './dist/modest-abtest.iife.min.js',
+            format: 'iife',
+            name: 'ABTest',
+            plugins: [terser()]
+        },
+        {
             file: './example/modest-abtest.iife.min.js',
             format: 'iife',
             name: 'ABTest',

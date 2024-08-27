@@ -19,18 +19,20 @@ function createAppShuntModel(app_id, config) {
             layer_id = 'defaultLayerId',
             version = '',
             exp_set,
+            ref_exp_id,
             ref_exp_data
         } = item;
         // (100 - hit * 100) / 100 Avoid bugs caused by precision loss
         shunt_model[app_id].layer[layer_id] = {
             ref_exp: {
+                id:ref_exp_id,
                 data:ref_exp_data,
                 bucket:getBucket(0, (100 - hit * 100) / 100  * BUCKET_NUM),
                 version
             },
             exp_set: {}
         };
-        let index = 0;
+        let index = (100 - hit * 100) / 100  * BUCKET_NUM;
         // exp set model gen
         for (let exp_item of exp_set) {
             let {

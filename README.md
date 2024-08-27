@@ -14,8 +14,6 @@ demo示例在dist目录下可以找到
 // html 中以script标签的形式引入 modest-abtest.iife.min.js
 var abtest = new ABTest('yourAppId',[{
     layer_id:'yourLayerId',
-    ref_exp_id:0,
-    ref_exp_data:'planZero',
     hit:1,
     version:1,
     exp_set:[

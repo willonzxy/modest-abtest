@@ -1,6 +1,6 @@
 {
   "name": "modest-abtest",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A javascript ABTest lib running in browser",
   "main": "dist/modest-abtest.cjs.js",
   "module": "dist/modest-abtest.esm.js",

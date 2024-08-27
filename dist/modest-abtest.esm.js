@@ -926,13 +926,13 @@ class ABTest {
   run(layer_id) {
     let uid = this.getUid() || uuid();
     let hash_id = `${uid}_${
-      location.protocol + "://" + location.host + location.path
+      location.protocol + "://" + location.host + location.pathname
     }`;
     let hit_info = getHitInfo(this.app_id, layer_id, this.model, hash_id, uid);
     // set uid trace_id in cookie
     setCookies(this.app_id, uid, hit_info.trace_id);
     this.uid = uid;
-    this.trace_id = this.trace_id;
+    this.trace_id = hit_info.trace_id;
     return hit_info;
   }
 }

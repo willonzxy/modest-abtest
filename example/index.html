@@ -34,18 +34,17 @@
     </div>
     <script src="./modest-abtest.iife.min.js"></script>
     <script>
-        var abtest = new ABTest('appId', [{
-            layer_id: 'layerId',
-            // ref_exp_id: 0,
-            // ref_exp_data: 'planZero',
-            version: 1,
-            hit: 1,
-            exp_set: [
-                { id: 1, weight: 0.5, data: 'planA' },
-                { id: 2, weight: 0.5, data: 'planB' }
-            ]
-        }]);
-        console.log('abtest: ', abtest);
+        var abtest = new ABTest('appId', [
+            {
+                layer_id: 'layerId',
+                version: 1,
+                hit: 1,
+                exp_set: [
+                    { id: 1, weight: 0.5, data: 'planA' },
+                    { id: 2, weight: 0.5, data: 'planB' }
+                ]
+            }
+        ]);
         function abtestRun() {
             var abtest_result = abtest.run();
             document.getElementById('res').innerHTML = JSON.stringify(abtest_result, '', '\t')

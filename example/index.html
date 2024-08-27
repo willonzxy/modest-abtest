@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AB Test Demo</title>
 </head>
+
 <body>
-    
+
     <div>
         <h2>AB Test</h2>
         <pre>
@@ -27,26 +29,28 @@
         <button onclick="abtestRun()">abtest.run()</button>
         <p>abtest_result:</p>
         <pre id="res">
-            
+
         </pre>
     </div>
     <script src="./modest-abtest.iife.min.js"></script>
     <script>
-        var abtest = new ABTest('abtestAppSymbol',[{
-            layer_id:'layerSymbol',
-            ref_exp_id:0,
-            ref_exp_data:'planZero',
-            version:1,
-            hit:0.5,
-            exp_set:[
-                {id:1,weight:0.5,data:'planA'},
-                {id:2,weight:0.5,data:'planB'}
+        var abtest = new ABTest('appId', [{
+            layer_id: 'layerId',
+            // ref_exp_id: 0,
+            // ref_exp_data: 'planZero',
+            version: 1,
+            hit: 1,
+            exp_set: [
+                { id: 1, weight: 0.5, data: 'planA' },
+                { id: 2, weight: 0.5, data: 'planB' }
             ]
         }]);
-        function abtestRun(){
+        console.log('abtest: ', abtest);
+        function abtestRun() {
             var abtest_result = abtest.run();
-            document.getElementById('res').innerHTML = JSON.stringify(abtest_result,'','\t')
+            document.getElementById('res').innerHTML = JSON.stringify(abtest_result, '', '\t')
         }
     </script>
 </body>
+
 </html>

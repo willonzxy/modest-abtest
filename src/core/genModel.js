@@ -41,6 +41,9 @@ function createAppShuntModel(app_id, config) {
                 weight
             } = exp_item;
             let len = Math.round(weight * BUCKET_NUM);
+            if( index + len > BUCKET_NUM ){
+                throw new Error(`ABTest初始化失败，请检查 ${app_id} 应用中，${layer_id} 场景下的流量分配情况`)
+            }
             let bucket = getBucket(index, len);
             shunt_model[app_id].layer[layer_id].exp_set[id] = {
                 data,

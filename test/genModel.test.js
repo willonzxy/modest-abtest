@@ -1,5 +1,5 @@
 var expect = require("chai").expect;
-var ABTest = require("../dist/modest-abtest.cjs.min.js");
+var ABTest = require("../dist/modest-abtest.cjs.js");
 
 describe("abtest model generate test1", function () {
   it("[case1]: 90% join in the abtest exp，all exp group bucket allocation is right", function () {

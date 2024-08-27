@@ -1,7 +1,7 @@
-# 介绍
+# 1 介绍
 一个只在浏览器中运行的ABTest JS库，提供了CJS、ESM、IIFE三种格式的模块导出。  
 IIFE模块的兼容性为：> 0.2% , not dead , Chrome >= 67
-# 示例
+# 2 示例
 demo示例在dist目录下可以找到
 ```javascript
 // CJS 模式
@@ -38,7 +38,7 @@ console.log(abtest_result);
 	"uid": "7f65cb09-51ba-48b1-9622-fc698141b1dd"
 }
 ```
-# 初始化配置说明
+# 3 初始化配置说明
 ```
 var abtest = new ABtest(appId,config)
 ```
@@ -65,7 +65,7 @@ var abtest = new ABtest(appId,config)
 | data | 实验组数据 | any | 是 | - |
 
 
-# 运行实验
+# 4 运行实验
 ```
 var result = abtest.run(layer_id);
 ```

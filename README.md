@@ -2,7 +2,7 @@
 一个只在浏览器中运行的ABTest JS库，提供了CJS、ESM、IIFE三种格式的模块导出。  
 IIFE模块的兼容性为：> 0.2% , not dead , Chrome >= 67
 # 示例
-demo示例在dist目录下可以找到，以使用IIFE模块的运行示例：
+demo示例在dist目录下可以找到
 ```javascript
 // CJS 模式
 // const ABTest = require('modest-abtest');

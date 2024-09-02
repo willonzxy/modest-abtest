@@ -82,7 +82,7 @@ var result = abtest.run(layer_id);
 ### 注意
 1. `trace_id`、`uid` 均会被追加到cookie上，设置于二级域名上，有效期为1年。
 2. `trace_id` 在cookie中的key为 `abtest-trace-id-${trace_id}`
-3. `uid` 在cookie中的key为 `abtest-uid-${trace_id}`
+3. `uid` 在cookie中的key为 `abtest-uid-${uid}`
 
 
 ## `layer` 字段说明

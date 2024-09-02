@@ -1,53 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABTest 示例</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AB Test Demo</title>
-</head>
-
-<body>
-
+  <body>
     <div>
-        <h2>AB Test</h2>
-        <pre>
-            var abtest = new ABTest('appId',[{
-                layer_id:'layerId',
-                version:1,
-                hit:1,
-                exp_set:[
-                    {id:1,weight:0.5,data:'planA'},
-                    {id:2,weight:0.5,data:'planB'}
-                ]
-            }]);
-            var abtest_result = abtest.run();
-        </pre>
-        <button onclick="abtestRun()">abtest.run()</button>
-        <p>abtest_result:</p>
-        <pre id="res">
-
-        </pre>
+      <h2>ABTest 示例</h2>
+      <p style="color: red">你可以尝试编辑以下配置</p>
+      <pre contenteditable="true" id="code">
+          window.abtest = new ABTest('appId',[{
+              layer_id:'layerId',
+              version:1,
+              hit:1,
+              exp_set:[
+                  {id:1,weight:0.5,data:'planA'},
+                  {id:2,weight:0.5,data:'planB'}
+              ]
+          }]);
+      </pre>
+      <button id="run">执行abtest.run()</button>
+      <p>abtest.run()返回值：</p>
+      <pre id="res"></pre>
     </div>
     <script src="./modest-abtest.iife.min.js"></script>
     <script>
-        var abtest = new ABTest('appId', [
-            {
-                layer_id: 'layerId',
-                version: 1,
-                hit: 1,
-                exp_set: [
-                    { id: 1, weight: 0.5, data: 'planA' },
-                    { id: 2, weight: 0.5, data: 'planB' }
-                ]
-            }
-        ]);
-        function abtestRun() {
-            var abtest_result = abtest.run();
-            document.getElementById('res').innerHTML = JSON.stringify(abtest_result, '', '\t')
-        }
-    </script>
-</body>
+      var nd_code = document.getElementById("code");
+      nd_code.focus();
 
+      document.getElementById("run").onclick = () => {
+        const code = nd_code.textContent.replace(/\n/g, "");
+        eval(code);
+        var abtest_result = abtest.run();
+        setResult(JSON.stringify(abtest_result, "", "\t"));
+      };
+
+      function setResult(content) {
+        document.getElementById("res").innerHTML = content;
+      }
+
+      window.onerror = function (msg) {
+        setResult(msg);
+      };
+    </script>
+  </body>
 </html>

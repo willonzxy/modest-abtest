@@ -1,4 +1,5 @@
 import { BUCKET_NUM } from '../config.js'
+import { checkLayerConfig  } from "./validate.js"
 
 export default function genModel(app_id,config){
     if(!Array.isArray(config)){
@@ -14,6 +15,7 @@ function createAppShuntModel(app_id, config) {
         layer: {}
     };
     for (let item of config) {
+        checkLayerConfig(item);
         let {
             hit,
             layer_id = 'defaultLayerId',
